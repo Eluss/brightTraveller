@@ -33,6 +33,7 @@ class ApiClient {
     }
     
     func startRide(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
+        
         print("Starting ride from \(from) to \(to)")
     }
     

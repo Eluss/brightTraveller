@@ -36,7 +36,7 @@ class SuccessViewController: UIViewController {
     }
     
     func back() {
-        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

@@ -93,7 +93,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                     let coords = [coord1, coord2, coord3]
                     self.rideInitializer.initializeRide(coordinates: coords)
                     
-                    let alert = UIAlertController(title: "Zgłoszenie przyjęte, zaraz będzie taxi", message: "", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Zgłoszenie przyjęte, zaraz będzie kierowca", message: "", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { ok in
                     }))
                     self.present(alert, animated: true, completion: nil)

@@ -23,13 +23,14 @@ class ApiClient {
             "access_token": accessToken
             ] as [String : Any]
         let url = URL(string: host + "/users/me")!
-        Alamofire.request(url, method: .put, parameters: parameters, encoding: URLEncoding.httpBody, headers: nil).response { response in
+        let request = Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: nil).response { response in
             if response.response?.statusCode != 200 {
                 print("!!!!Location sending: FAILED!!!!")
             } else {
                 print("Location sending: OK")
             }
         }
+        print(request)
     }
     
     func startRide(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
@@ -41,7 +42,7 @@ class ApiClient {
             ] as [String : Any]
         let url = URL(string: host + "/calls")!
         
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: nil).response { response in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).response { response in
             if response.response?.statusCode != 201 {
                 print("!!!!Starting ride: FAILED!!!!")
             } else {

@@ -24,7 +24,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         counter += 1
         if let location = locations.first, counter == 10 {
-//            ApiClient.sharedInstance.sendLocation(location: location.coordinate)
+            ApiClient.sharedInstance.sendLocation(location: location.coordinate)
             counter = 0
         }
     }

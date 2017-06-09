@@ -10,10 +10,11 @@ import UIKit
 import PureLayout
 
 class MainViewController: UIViewController {
-
-    var viewModel: MainViewModel!
-    let startRideButton: UIButton!
-    let actionLabel = UILabel()
+    
+    var locationService = LocationService()
+    var rideInitializer = RideInitializer()
+    let startRideButton = UIButton()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,75 +25,28 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightColor]
         view.backgroundColor = UIColor.darkColor
-        setupView()
-        viewModel = MainViewModel(onSwitchToMode: onSwitchToMode)
-        viewModel.currentMode = .idle
-        AudioPlayer.sharedInstance.playWelcomeAudio()
+        setupButton()
     }
     
-    func onSwitchToMode(mode: MainScreenMode) {
-        switch mode {
-        case .idle:
-            print("Setting UI to idle state")
-            self.setupIdleMode()
-        case .initializeRide:
-            print("Setting UI to ride decision state")
-            self.setupRideDecisionMode()
-        }
-    }
-    
-    func setupView() {
-        setupActionLabel()
-    }
-    
-    func setupActionLabel() {
-        actionLabel.textColor = UIColor.lightColor
-        view.addSubview(actionLabel)
-        actionLabel.autoCenterInSuperview()
-        actionLabel.numberOfLines = 0
-    }
-    
-    func setupRideDecisionMode() {
-        clearRecognizers()
-        let acceptGesture = UITapGestureRecognizer(target: self, action: #selector(acceptRide))
-        acceptGesture.numberOfTapsRequired = 2
-        let discardGesture = UITapGestureRecognizer(target: self, action: #selector(discardRide))
+    private func setupButton() {
+        startRideButton.setTitle("Rozpocznij podróż z Gdańska do Krakowa", for: .normal)
+        startRideButton.setTitleColor(UIColor.lightColor, for: .normal)
+        startRideButton.addTarget(self, action: #selector(startRide), for: .touchUpInside)
         
-        discardGesture.require(toFail: acceptGesture)
-        
-        view.addGestureRecognizer(acceptGesture)
-        view.addGestureRecognizer(discardGesture)
-        
-        actionLabel.text = "Naciśnij dwa razy aby rozpocząć podróż z Gdańska do Krakowa, naciśnij raz aby anulować"
+        view.addSubview(startRideButton)
+        startRideButton.autoCenterInSuperview()
     }
     
-    func setupIdleMode() {
-        clearRecognizers()
-        let initializeGesture = UITapGestureRecognizer(target: self, action: #selector(initializeRide))
-        view.addGestureRecognizer(initializeGesture)
-        actionLabel.text = "Naciśnij na ekran aby rozpocząć"
+    func startRide() {
+        let alert = UIAlertController(title: "Uwaga", message: "Czy chcesz rozpocząć podróż", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Tak", style: .default, handler: { ok in
+            self.rideInitializer.initializeRide()
+        }))
+        alert.addAction(UIAlertAction(title: "Nie", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func clearRecognizers() {
-        view.gestureRecognizers?.forEach {
-            view.removeGestureRecognizer($0)
-        }
-    }
     
-    func acceptRide() {
-        viewModel.acceptRide()
-    }
-    
-    func initializeRide() {
-        viewModel.initializeRide()
-    }
-    
-    func discardRide() {
-        viewModel.discardRide()
-        
-    }
-
 }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		218D6DEF5AF51D7AE830F59B /* Pods_BrightTraveller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDDB2F78E9ED2AF55E2C370 /* Pods_BrightTraveller.framework */; };
-		72662D4B1EEAAC7700827BA1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72662D4A1EEAAC7700827BA1 /* MainViewModel.swift */; };
 		72662D4D1EEAB27000827BA1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72662D4C1EEAB27000827BA1 /* Colors.swift */; };
 		72662D4F1EEAC15100827BA1 /* RideInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72662D4E1EEAC15100827BA1 /* RideInitializer.swift */; };
 		72662D511EEAC1BC00827BA1 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72662D501EEAC1BC00827BA1 /* LocationService.swift */; };
@@ -25,7 +24,6 @@
 
 /* Begin PBXFileReference section */
 		6BDDB2F78E9ED2AF55E2C370 /* Pods_BrightTraveller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrightTraveller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		72662D4A1EEAAC7700827BA1 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		72662D4C1EEAB27000827BA1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		72662D4E1EEAC15100827BA1 /* RideInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideInitializer.swift; sourceTree = "<group>"; };
 		72662D501EEAC1BC00827BA1 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				72D4516B1EEAA76500AFC5F3 /* AppDelegate.swift */,
 				72662D4C1EEAB27000827BA1 /* Colors.swift */,
 				72D4516D1EEAA76500AFC5F3 /* MainViewController.swift */,
-				72662D4A1EEAAC7700827BA1 /* MainViewModel.swift */,
 				72662D4E1EEAC15100827BA1 /* RideInitializer.swift */,
 				72662D501EEAC1BC00827BA1 /* LocationService.swift */,
 				72662D521EEAC3ED00827BA1 /* ApiClient.swift */,
@@ -253,7 +250,6 @@
 				72662D511EEAC1BC00827BA1 /* LocationService.swift in Sources */,
 				72662D4D1EEAB27000827BA1 /* Colors.swift in Sources */,
 				72D4516C1EEAA76500AFC5F3 /* AppDelegate.swift in Sources */,
-				72662D4B1EEAAC7700827BA1 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

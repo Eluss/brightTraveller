@@ -9,11 +9,39 @@
 import UIKit
 import PureLayout
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITextFieldDelegate {
     
     var locationService = LocationService()
-    var rideInitializer = RideInitializer()
-    let startRideButton = UIButton()
+    var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
+    var startCityTextField: UITextField = {
+        let field = UITextField()
+        field.placeholder = "Początkowa stacja"
+        return field
+    }()
+    
+    var endCityTextField: UITextField = {
+        let field = UITextField()
+        field.placeholder = "Końcowa stacja"
+        return field
+    }()
+    
+    var endAddressTextField: UITextField = {
+        let field = UITextField()
+        field.placeholder = "Końcowy adres"
+        return field
+    }()
+    
+    var okButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Rozpocznij podróż", for: .normal)
+        return button
+    }()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -25,29 +53,38 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.darkColor
-        setupButton()
+        view.backgroundColor = .white
+        setupTextFields()
+        
     }
     
-    private func setupButton() {
-        startRideButton.setTitle("Rozpocznij podróż z Gdańska do Krakowa", for: .normal)
-        startRideButton.setTitleColor(UIColor.lightColor, for: .normal)
-        startRideButton.addTarget(self, action: #selector(startRide), for: .touchUpInside)
+    private func setupTextFields() {
+        startCityTextField.delegate = self
+        endAddressTextField.delegate = self
+        endCityTextField.delegate = self
+        view.addSubview(stackView)
+        stackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsetsMake(100, 0, 0, 0))
+        okButton.addTarget(self, action: #selector(startRide), for: .touchUpInside)
         
-        view.addSubview(startRideButton)
-        startRideButton.autoCenterInSuperview()
+        stackView.addArrangedSubview(startCityTextField)
+        stackView.addArrangedSubview(endCityTextField)
+        stackView.addArrangedSubview(endAddressTextField)
+        stackView.addArrangedSubview(okButton)
+        
     }
+    
     
     func startRide() {
-        let alert = UIAlertController(title: "Uwaga", message: "Czy chcesz rozpocząć podróż", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tak", style: .default, handler: { ok in
-            self.rideInitializer.initializeRide()            
-            self.present(SuccessViewController(), animated: true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Nie", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+//        let rideInit = RideInitializer()
+//        rideInit.initializeRide(coordinates: <#T##CLLocationCoordinate2D#>)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        startCityTextField.resignFirstResponder()
+        endCityTextField.resignFirstResponder()
+        endAddressTextField.resignFirstResponder()
+        return true
+    }
     
 }
 

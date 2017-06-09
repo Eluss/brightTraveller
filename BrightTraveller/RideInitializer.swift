@@ -12,11 +12,9 @@ import CoreLocation
 
 class RideInitializer {
     
-    func initializeRide() {
-        print("Initializing ride")
-        let gdansk = CLLocationCoordinate2D(latitude: 54.382283, longitude: 18.605526)
-        let krakow = CLLocationCoordinate2D(latitude: 50.068025, longitude: 19.947044)
-        ApiClient.sharedInstance.startRide(from: gdansk, to: krakow)        
+    func initializeRide(coordinates: CLLocationCoordinate2D) {
+        print("Initializing ride")        
+//        ApiClient.sharedInstance.startRide(to: coordinates)
     }
     
 }

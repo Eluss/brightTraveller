@@ -21,6 +21,7 @@
 		72D4516E1EEAA76500AFC5F3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D4516D1EEAA76500AFC5F3 /* MainViewController.swift */; };
 		72D451731EEAA76500AFC5F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72D451721EEAA76500AFC5F3 /* Assets.xcassets */; };
 		72D451761EEAA76500AFC5F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72D451741EEAA76500AFC5F3 /* LaunchScreen.storyboard */; };
+		72EE71B71EEB397A00EB1873 /* CityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE71B61EEB397A00EB1873 /* CityButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		72D451721EEAA76500AFC5F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72D451751EEAA76500AFC5F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72D451771EEAA76500AFC5F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72EE71B61EEB397A00EB1873 /* CityButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityButton.swift; sourceTree = "<group>"; };
 		993C68430FDE1B50DE3148D8 /* Pods-BrightTraveller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrightTraveller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrightTraveller/Pods-BrightTraveller.debug.xcconfig"; sourceTree = "<group>"; };
 		A23CC71EB7CDFD23715F70CC /* Pods-BrightTraveller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrightTraveller.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrightTraveller/Pods-BrightTraveller.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				72D4516B1EEAA76500AFC5F3 /* AppDelegate.swift */,
 				72662D4C1EEAB27000827BA1 /* Colors.swift */,
 				72D4516D1EEAA76500AFC5F3 /* MainViewController.swift */,
+				72EE71B61EEB397A00EB1873 /* CityButton.swift */,
 				72662D821EEAE8E200827BA1 /* SuccessViewController.swift */,
 				72662D4E1EEAC15100827BA1 /* RideInitializer.swift */,
 				72662D501EEAC1BC00827BA1 /* LocationService.swift */,
@@ -253,6 +256,7 @@
 				72662D511EEAC1BC00827BA1 /* LocationService.swift in Sources */,
 				72662D4D1EEAB27000827BA1 /* Colors.swift in Sources */,
 				72662D831EEAE8E200827BA1 /* SuccessViewController.swift in Sources */,
+				72EE71B71EEB397A00EB1873 /* CityButton.swift in Sources */,
 				72D4516C1EEAA76500AFC5F3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

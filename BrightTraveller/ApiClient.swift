@@ -35,8 +35,7 @@ class ApiClient {
     
     func startRide(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
         
-        let parameters = [
-            "startLocation": [from.longitude, from.latitude],
+        let parameters = [            
             "endLocation": [to.longitude, to.latitude],
             "access_token": accessToken
             ] as [String : Any]

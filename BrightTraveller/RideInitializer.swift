@@ -14,8 +14,8 @@ class RideInitializer {
     
     func initializeRide() {
         print("Initializing ride")
-        let gdansk = CLLocationCoordinate2D(latitude: 1, longitude: 1)
-        let krakow = CLLocationCoordinate2D(latitude: 2, longitude: 2)
+        let gdansk = CLLocationCoordinate2D(latitude: 54.382283, longitude: 18.605526)
+        let krakow = CLLocationCoordinate2D(latitude: 50.068025, longitude: 19.947044)
         ApiClient.startRide(from: gdansk, to: krakow)
     }
     

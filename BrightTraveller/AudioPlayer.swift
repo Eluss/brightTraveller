@@ -35,14 +35,13 @@ class AudioPlayer {
     }
     
     func playOnAcceptAudio() {
-//        print("*AUDIO PLAYER* playing ride accept audio")
-//        
-//        let urlPath = Bundle.main.path(forResource: "bt_accept", ofType: "m4a")
-//        let fileURL = URL(fileURLWithPath:urlPath!)
-//        let playerItem = AVPlayerItem(url: fileURL)
-//        queuePlayer.insert(playerItem, after: nil)
-//        queuePlayer.play()
+        print("*AUDIO PLAYER* playing ride accept audio")
         
+        let urlPath = Bundle.main.path(forResource: "bt_accept", ofType: "m4a")
+        let fileURL = URL(fileURLWithPath:urlPath!)
+        let playerItem = AVPlayerItem(url: fileURL)
+        queuePlayer.insert(playerItem, after: nil)
+        queuePlayer.play()        
     }
     
     func playOnDiscardAudio() {

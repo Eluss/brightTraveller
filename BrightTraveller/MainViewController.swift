@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
     func startRide() {
         let alert = UIAlertController(title: "Uwaga", message: "Czy chcesz rozpocząć podróż", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Tak", style: .default, handler: { ok in
-            self.rideInitializer.initializeRide()
+            self.rideInitializer.initializeRide()            
         }))
         alert.addAction(UIAlertAction(title: "Nie", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)

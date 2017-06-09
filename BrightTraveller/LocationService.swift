@@ -22,7 +22,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            ApiClient.sendLocation(location: location.coordinate)
+            ApiClient.sharedInstance.sendLocation(location: location.coordinate)
         }
     }
 }

@@ -16,6 +16,7 @@ enum MainScreenMode {
 
 class MainViewModel {
     
+    var rideInitializer = RideInitializer()
     var onSwitchToMode: ((MainScreenMode)->Void)
     var currentMode: MainScreenMode {
         didSet {
@@ -34,7 +35,7 @@ class MainViewModel {
     }
     
     func acceptRide() {
-        
+        rideInitializer.initializeRide()
     }
     
     func discardRide() {

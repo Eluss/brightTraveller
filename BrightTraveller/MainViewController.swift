@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
     let actionLabel = UILabel()
     init() {
         super.init(nibName: nil, bundle: nil)
-        viewModel = MainViewModel(onSwitchToMode: onSwitchToMode)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,6 +26,8 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightColor]
         view.backgroundColor = UIColor.darkColor
         setupView()
+        viewModel = MainViewModel(onSwitchToMode: onSwitchToMode)
+        viewModel.currentMode = .idle        
     }
     
     func onSwitchToMode(mode: MainScreenMode) {
@@ -48,7 +49,7 @@ class MainViewController: UIViewController {
         actionLabel.textColor = UIColor.lightColor
         view.addSubview(actionLabel)
         actionLabel.autoCenterInSuperview()
-        actionLabel.text = "Tap to start your ride"
+        actionLabel.numberOfLines = 0
     }
     
     func setupRideDecisionMode() {
@@ -62,7 +63,7 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(acceptGesture)
         view.addGestureRecognizer(discardGesture)
         
-        actionLabel.text = "Tap twice to accept request"
+        actionLabel.text = "Taps twice to accept request \nTap once to discard the request"
     }
     
     func setupIdleMode() {

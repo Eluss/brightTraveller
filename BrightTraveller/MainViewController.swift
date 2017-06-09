@@ -8,6 +8,7 @@
 
 import UIKit
 import PureLayout
+import CoreLocation
 
 class MainViewController: UIViewController, UITextFieldDelegate {
     
@@ -75,8 +76,21 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     func startRide() {
-//        let rideInit = RideInitializer()
-//        rideInit.initializeRide(coordinates: <#T##CLLocationCoordinate2D#>)
+        let geocoder = CLGeocoder()
+        let address1 = "Gdansk Glowny"
+        let address2 = "Krakow Glowny"
+        let address3 = "Krakow Podole 60"
+        geocoder.geocodeAddressString(address1) { (placemark1, error) in
+            print(placemark1!.first!.location!.coordinate)
+            geocoder.geocodeAddressString(address2) { (placemark2, error) in
+                print(placemark2!.first!.location!.coordinate)
+                geocoder.geocodeAddressString(address3) { (placemark3, error) in
+                print(placemark3!.first!.location!.coordinate)
+                }
+            }
+        }
+        //        let rideInit = RideInitializer()
+        //        rideInit.initializeRide(coordinates: <#T##CLLocationCoordinate2D#>)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

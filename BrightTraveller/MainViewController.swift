@@ -12,6 +12,7 @@ import PureLayout
 class MainViewController: UIViewController {
 
     var viewModel: MainViewModel!
+    let startRideButton: UIButton!
     let actionLabel = UILabel()
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -64,14 +65,14 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(acceptGesture)
         view.addGestureRecognizer(discardGesture)
         
-        actionLabel.text = "Taps twice to accept request \nTap once to discard the request"
+        actionLabel.text = "Naciśnij dwa razy aby rozpocząć podróż z Gdańska do Krakowa, naciśnij raz aby anulować"
     }
     
     func setupIdleMode() {
         clearRecognizers()
         let initializeGesture = UITapGestureRecognizer(target: self, action: #selector(initializeRide))
         view.addGestureRecognizer(initializeGesture)
-        actionLabel.text = "Tap to start your ride"        
+        actionLabel.text = "Naciśnij na ekran aby rozpocząć"
     }
     
     func clearRecognizers() {

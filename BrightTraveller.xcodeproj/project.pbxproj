@@ -155,6 +155,7 @@
 				TargetAttributes = {
 					72D451671EEAA76500AFC5F3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 5WM92Z77Q7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -310,7 +311,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -353,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -366,7 +367,9 @@
 			baseConfigurationReference = 993C68430FDE1B50DE3148D8 /* Pods-BrightTraveller.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5WM92Z77Q7;
 				INFOPLIST_FILE = BrightTraveller/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elisawic.BrightTraveller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -379,7 +382,9 @@
 			baseConfigurationReference = A23CC71EB7CDFD23715F70CC /* Pods-BrightTraveller.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5WM92Z77Q7;
 				INFOPLIST_FILE = BrightTraveller/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elisawic.BrightTraveller;
 				PRODUCT_NAME = "$(TARGET_NAME)";

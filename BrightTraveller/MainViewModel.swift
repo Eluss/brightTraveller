@@ -37,6 +37,7 @@ class MainViewModel {
     }
     
     func acceptRide() {
+        currentMode = .idle
         rideInitializer.initializeRide()
     }
     

@@ -12,9 +12,9 @@ import CoreLocation
 
 class RideInitializer {
     
-    func initializeRide(coordinates: CLLocationCoordinate2D) {
+    func initializeRide(coordinates: [CLLocationCoordinate2D]) {
         print("Initializing ride")        
-//        ApiClient.sharedInstance.startRide(to: coordinates)
+        ApiClient.sharedInstance.startRide(coordinates: coordinates)
     }
     
 }

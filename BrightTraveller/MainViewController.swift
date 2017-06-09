@@ -13,6 +13,7 @@ import CoreLocation
 class MainViewController: UIViewController, UITextFieldDelegate {
     
     var locationService = LocationService()
+    var rideInitializer = RideInitializer()
     var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -86,11 +87,16 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 print(placemark2!.first!.location!.coordinate)
                 geocoder.geocodeAddressString(address3) { (placemark3, error) in
                 print(placemark3!.first!.location!.coordinate)
+                    let coord1 = placemark1!.first!.location!.coordinate
+                    let coord2 = placemark2!.first!.location!.coordinate
+                    let coord3 = placemark3!.first!.location!.coordinate
+                    let coords = [coord1, coord2, coord3]
+                    self.rideInitializer.initializeRide(coordinates: coords)
                 }
             }
         }
         //        let rideInit = RideInitializer()
-        //        rideInit.initializeRide(coordinates: <#T##CLLocationCoordinate2D#>)
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -33,10 +33,14 @@ class ApiClient {
         print(request)
     }
     
-    func startRide(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
+    func startRide(coordinates: [CLLocationCoordinate2D]) {
+        
+        let coords = coordinates.map { (x) -> [Double] in
+            return [x.longitude, x.latitude]
+        }
         
         let parameters = [            
-            "endLocation": [to.longitude, to.latitude],
+            "steps": [coords],
             "access_token": accessToken
             ] as [String : Any]
         let url = URL(string: host + "/calls")!
@@ -50,7 +54,7 @@ class ApiClient {
         }
         
         
-        print("Starting ride from \(from) to \(to)")
+//        print("Starting ride from \(from) to \(to)")
     }
     
 }

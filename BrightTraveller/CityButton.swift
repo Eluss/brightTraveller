@@ -31,13 +31,7 @@ class CityButton: UIButton {
     }
     
     func tap() {
-        let alert = UIAlertController(title: "Uwaga", message: "Czy chcesz rozpocząć podróż", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tak", style: .default, handler: { ok in
-            self.rideInitializer.initializeRide(coordinates: self.coord)
-            self.viewController.present(SuccessViewController(), animated: true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Nie", style: .cancel, handler: nil))
-        viewController.present(alert, animated: true, completion: nil)
+        
     }
     
 }

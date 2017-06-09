@@ -16,6 +16,7 @@ enum MainScreenMode {
 
 class MainViewModel {
     
+    var locationService = LocationService()
     var rideInitializer = RideInitializer()
     var onSwitchToMode: ((MainScreenMode)->Void)
     var currentMode: MainScreenMode {
@@ -26,7 +27,7 @@ class MainViewModel {
     
     init(onSwitchToMode: @escaping (MainScreenMode)->Void) {
         self.onSwitchToMode = onSwitchToMode
-        currentMode = .idle
+        currentMode = .idle        
     }
 
     

@@ -17,7 +17,7 @@ class RideInitializer {
         let gdansk = CLLocationCoordinate2D(latitude: 54.382283, longitude: 18.605526)
         let krakow = CLLocationCoordinate2D(latitude: 50.068025, longitude: 19.947044)
         ApiClient.startRide(from: gdansk, to: krakow)
-        AudioPlayer.playOnAcceptAudio()
+        AudioPlayer.sharedInstance.playOnAcceptAudio()
     }
     
 }

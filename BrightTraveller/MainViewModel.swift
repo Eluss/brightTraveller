@@ -33,7 +33,7 @@ class MainViewModel {
     
     func initializeRide() {
         currentMode = .initializeRide
-        AudioPlayer.playRideDecisionAudio()
+        AudioPlayer.sharedInstance.playRideDecisionAudio()
     }
     
     func acceptRide() {
@@ -43,7 +43,7 @@ class MainViewModel {
     
     func discardRide() {
         currentMode = .idle
-        AudioPlayer.playOnDiscardAudio()
+        AudioPlayer.sharedInstance.playOnDiscardAudio()
     }
     
 }

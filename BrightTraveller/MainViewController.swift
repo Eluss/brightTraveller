@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
         setupView()
         viewModel = MainViewModel(onSwitchToMode: onSwitchToMode)
         viewModel.currentMode = .idle
-        AudioPlayer.playWelcomeAudio()
+        AudioPlayer.sharedInstance.playWelcomeAudio()
     }
     
     func onSwitchToMode(mode: MainScreenMode) {

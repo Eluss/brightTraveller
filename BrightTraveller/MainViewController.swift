@@ -27,7 +27,8 @@ class MainViewController: UIViewController {
         view.backgroundColor = UIColor.darkColor
         setupView()
         viewModel = MainViewModel(onSwitchToMode: onSwitchToMode)
-        viewModel.currentMode = .idle        
+        viewModel.currentMode = .idle
+        AudioPlayer.playWelcomeAudio()
     }
     
     func onSwitchToMode(mode: MainScreenMode) {
@@ -70,8 +71,7 @@ class MainViewController: UIViewController {
         clearRecognizers()
         let initializeGesture = UITapGestureRecognizer(target: self, action: #selector(initializeRide))
         view.addGestureRecognizer(initializeGesture)
-        
-        actionLabel.text = "Tap to start your ride"
+        actionLabel.text = "Tap to start your ride"        
     }
     
     func clearRecognizers() {
@@ -90,6 +90,7 @@ class MainViewController: UIViewController {
     
     func discardRide() {
         viewModel.discardRide()
+        
     }
 
 }

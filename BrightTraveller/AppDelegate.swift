@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var viewController = ViewController()
+    var viewController = MainViewController()
     var navigationController = UINavigationController()
 
 

@@ -81,6 +81,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         let address1 = "Gdansk Glowny"
         let address2 = "Krakow Glowny"
         let address3 = "Krakow Podole 60"
+        ApiClient.sharedInstance.sendLocation()
         geocoder.geocodeAddressString(address1) { (placemark1, error) in
             print(placemark1!.first!.location!.coordinate)
             geocoder.geocodeAddressString(address2) { (placemark2, error) in

@@ -16,10 +16,16 @@ class ApiClient {
     let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5M2E4NGU0NmZkMzdjMDA5YzFmNjZkZiIsImlhdCI6MTQ5NzAwNzQxMn0.5WgPKL7pvksheDrv1r1Dox9to2eLRQtVMdD4YZ6jNRU"
     static let sharedInstance = ApiClient()
     
-    func sendLocation(location: CLLocationCoordinate2D) {
+    var location: CLLocationCoordinate2D?
+    
+    func save(location: CLLocationCoordinate2D) {
+        self.location = location
+    }
+    
+    func sendLocation() {
         //        lon, lat in array
         let parameters = [
-            "location": [location.longitude, location.latitude],
+            "location": [self.location!.longitude, self.location!.latitude],
             "access_token": accessToken
             ] as [String : Any]
         let url = URL(string: host + "/users/me")!

@@ -12,6 +12,7 @@ import CoreLocation
 class LocationService: NSObject, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
+    var counter = 0
     
     override init() {
         super.init()
@@ -21,8 +22,10 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
+        counter += 1
+        if let location = locations.first, counter == 10 {
             ApiClient.sharedInstance.sendLocation(location: location.coordinate)
+            counter = 0
         }
     }
 }

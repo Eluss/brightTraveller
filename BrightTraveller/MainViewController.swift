@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import PureLayout
 
 class MainViewController: UIViewController {
 
-    let viewModel = MainViewModel()
-    
+    var viewModel: MainViewModel!
+    let actionLabel = UILabel()
     init() {
         super.init(nibName: nil, bundle: nil)
+        viewModel = MainViewModel(onSwitchToMode: onSwitchToMode)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -22,40 +24,71 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightColor]
+        view.backgroundColor = UIColor.darkColor
         setupView()
     }
     
+    func onSwitchToMode(mode: MainScreenMode) {
+        switch mode {
+        case .idle:
+            print("Setting UI to idle state")
+            self.setupIdleMode()
+        case .initializeRide:
+            print("Setting UI to ride decision state")
+            self.setupRideDecisionMode()
+        }
+    }
+    
     func setupView() {
-        let initializeGesture = UITapGestureRecognizer(target: self, action: #selector(initializeRide))
+        setupActionLabel()
+    }
+    
+    func setupActionLabel() {
+        actionLabel.textColor = UIColor.lightColor
+        view.addSubview(actionLabel)
+        actionLabel.autoCenterInSuperview()
+        actionLabel.text = "Tap to start your ride"
+    }
+    
+    func setupRideDecisionMode() {
+        clearRecognizers()
         let acceptGesture = UITapGestureRecognizer(target: self, action: #selector(acceptRide))
         acceptGesture.numberOfTapsRequired = 2
         let discardGesture = UITapGestureRecognizer(target: self, action: #selector(discardRide))
         
-        initializeGesture.require(toFail: acceptGesture)
         discardGesture.require(toFail: acceptGesture)
         
-        view.addGestureRecognizer(initializeGesture)
         view.addGestureRecognizer(acceptGesture)
         view.addGestureRecognizer(discardGesture)
+        
+        actionLabel.text = "Tap twice to accept request"
+    }
+    
+    func setupIdleMode() {
+        clearRecognizers()
+        let initializeGesture = UITapGestureRecognizer(target: self, action: #selector(initializeRide))
+        view.addGestureRecognizer(initializeGesture)
+        
+        actionLabel.text = "Tap to start your ride"
+    }
+    
+    func clearRecognizers() {
+        view.gestureRecognizers?.forEach {
+            view.removeGestureRecognizer($0)
+        }
     }
     
     func acceptRide() {
-        if viewModel.isInitializeRideMode() {
-            viewModel.acceptRide()
-        }
+        viewModel.acceptRide()
     }
     
     func initializeRide() {
-        if !viewModel.isInitializeRideMode() {
-            viewModel.initializeRide()
-        }
+        viewModel.initializeRide()
     }
     
     func discardRide() {
-        if viewModel.isInitializeRideMode() {
-            viewModel.discardRide()
-        }
+        viewModel.discardRide()
     }
 
 }

@@ -7,24 +7,38 @@
 //
 
 import Foundation
+import ReactiveCocoa
 
+enum MainScreenMode {
+    case idle
+    case initializeRide
+}
 
 class MainViewModel {
+    
+    var onSwitchToMode: ((MainScreenMode)->Void)
+    var currentMode: MainScreenMode {
+        didSet {
+            self.onSwitchToMode(currentMode)
+        }
+    }
+    
+    init(onSwitchToMode: @escaping (MainScreenMode)->Void) {
+        self.onSwitchToMode = onSwitchToMode
+        currentMode = .idle
+    }
 
+    
     func initializeRide() {
-        print("initialize ride")
+        currentMode = .initializeRide
     }
     
     func acceptRide() {
-        print("accept ride")
+        
     }
     
     func discardRide() {
-        print("discard ride")
-    }
-    
-    func isInitializeRideMode() -> Bool {
-        return true
+        currentMode = .idle
     }
     
 }

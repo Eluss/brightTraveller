@@ -17,11 +17,11 @@ class ApiClient {
     static let sharedInstance = ApiClient()
     
     func sendLocation(location: CLLocationCoordinate2D) {
-//        lon, lat in array
+        //        lon, lat in array
         let parameters = [
             "location": [location.longitude, location.latitude],
             "access_token": accessToken
-        ] as [String : Any]
+            ] as [String : Any]
         let url = URL(string: host + "/users/me")!
         Alamofire.request(url, method: .put, parameters: parameters, encoding: URLEncoding.httpBody, headers: nil).response { response in
             if response.response?.statusCode != 200 {
@@ -33,6 +33,22 @@ class ApiClient {
     }
     
     func startRide(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
+        
+        let parameters = [
+            "startLocation": [from.longitude, from.latitude],
+            "endLocation": [to.longitude, to.latitude],
+            "access_token": accessToken
+            ] as [String : Any]
+        let url = URL(string: host + "/calls")!
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: nil).response { response in
+            if response.response?.statusCode != 201 {
+                print("!!!!Starting ride: FAILED!!!!")
+            } else {
+                print("Starting ride: OK")
+            }
+        }
+        
         
         print("Starting ride from \(from) to \(to)")
     }

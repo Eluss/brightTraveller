@@ -46,7 +46,7 @@ class ApiClient {
         }
         
         let parameters = [            
-            "steps": [coords],
+            "steps": coords,
             "access_token": accessToken
             ] as [String : Any]
         let url = URL(string: host + "/calls")!

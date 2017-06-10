@@ -39,13 +39,14 @@ class ApiClient {
         print(request)
     }
     
-    func startRide(coordinates: [CLLocationCoordinate2D]) {
+    func startRide(coordinates: [CLLocationCoordinate2D], steps: [String]) {
         
         let coords = coordinates.map { (x) -> [Double] in
             return [x.longitude, x.latitude]
         }
         
-        let parameters = [            
+        let parameters = [
+            "stepsLiteral": steps,
             "steps": coords,
             "access_token": accessToken
             ] as [String : Any]

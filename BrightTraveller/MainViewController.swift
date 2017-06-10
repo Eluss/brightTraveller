@@ -92,7 +92,8 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                     let coord2 = placemark2!.first!.location!.coordinate
                     let coord3 = placemark3!.first!.location!.coordinate
                     let coords = [coord1, coord2, coord3]
-                    self.rideInitializer.initializeRide(coordinates: coords)
+                    let steps = [address1, address2, address3]
+                    self.rideInitializer.initializeRide(coordinates: coords, steps: steps)
                     
                     let alert = UIAlertController(title: "Zgłoszenie przyjęte, zaraz będzie kierowca", message: "", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { ok in
